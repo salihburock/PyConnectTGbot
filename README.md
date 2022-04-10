@@ -25,38 +25,38 @@ takes a screenshot draws a square where mouse is and sends it
 
 moves cursor to given coordinates(ex: /moveto 314 159)
 
-**/move
+**/move**
 
 moves cursor by given values (ex: /move 314 159)
 
-**/click - /rclick 
+**/click - /rclick**
 
 left - right clicks where cursor is
 
-**/click x y - /rclick x y
+**/click x y - /rclick x y**
 
 left - right clicks to given coordinates (ex: /click 265 358)
 
-**/doubleclick or /dc
+**/doubleclick or /dc**
 
 double clicks where mouse is
 
-**/talk or /tts
+**/talk or /tts**
 
 turns text into speech sends .mp3 file and plays the .mp3 file
 
-**/os or /cmd 
+**/os or /cmd** 
 
 allows you to run terminal commands
 
-**/titles
+**/titles**
 
 sends titles of running programs through pyautogui's getAllTitles() method
 
-**/press
+**/press**
 
 presses the given button. Works via pyautogui's press() method (ex: /press win)
 
-**/type
+**/type**
 
 types the given words. Works via pyautogui's typewrite() method (ex: /type Hwllo World)
