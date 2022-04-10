@@ -13,15 +13,15 @@ PyConnectTelegramBot
 
 
 
-**/ss or /screenshot
+**/ss or /screenshot**
 
 takes a screenshot and sends it through telegram
 
-**/mp or /mouseposition 
+**/mp or /mouseposition**
 
 takes a screenshot draws a square where mouse is and sends it
 
-**/moveto 
+**/moveto**
 
 moves cursor to given coordinates(ex: /moveto 314 159)
 
