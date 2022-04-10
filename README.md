@@ -4,7 +4,7 @@ PyConnectTelegramBot
 2. Copy the API Token
 3. Run setup.py and paste the API Token
 4. Wait for it to download required modules
-5. Run main.py
+5. Run main.py (in case it doesn't work run fix.py and try again if it's still borken report an issue)
 6. Send a message to your telegram bot Functions for telegram bot:
 
 #nonstoprun.bat runs python scipt in a batch loop so if python script gets terminated it will start again instantly. It will stop if you terminate batch job(named conhost.exe in task manager
