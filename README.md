@@ -14,37 +14,49 @@ PyConnectTelegramBot
 
 
 /ss or /screenshot 
+
 takes a screenshot and sends it through telegram
 
 /mp or /mouseposition 
+
 takes a screenshot draws a square where mouse is and sends it
 
 /moveto 
+
 moves cursor to given coordinates(ex: /moveto 314 159)
 
 /move
+
 moves cursor by given values (ex: /move 314 159)
 
 /click - /rclick 
+
 left - right clicks where cursor is
 
 /click x y - /rclick x y
+
 left - right clicks to given coordinates (ex: /click 265 358)
 
 /doubleclick or /dc
+
 double clicks where mouse is
 
 /talk or /tts
+
 turns text into speech sends .mp3 file and plays the .mp3 file
 
 /os or /cmd 
+
 allows you to run terminal commands
 
 /titles
+
 sends titles of running programs through pyautogui's getAllTitles() method
 
 /press
+
 presses the given button. Works via pyautogui's press() method (ex: /press win)
 
 /type
+
 types the given words. Works via pyautogui's typewrite() method (ex: /type Hwllo World)
