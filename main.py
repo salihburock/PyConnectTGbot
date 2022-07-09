@@ -10,6 +10,7 @@ import cv2
 import time
 from functools import *
 import json
+import sys
 jf = json.load(open('admins.json'))
 def photocap():
     import cv2
@@ -81,6 +82,14 @@ def mp(message):
         os.remove('ssout.png')
     except:
         pass
+@bot.message_handler(commands=['newfile','nf'])
+def newf(message):
+    inp = message.text
+    inplist = inp.split('\n')
+    filename = "files/"+inplist[1]
+    code = inp.split(inplist[1])[1]
+    f = open(filename,'w+')
+    f.write(code)
 
 @bot.message_handler(commands=['test','t'])
 @restrict()
@@ -123,7 +132,10 @@ def ptpress(message):
 @bot.message_handler(commands=['titles'])
 @restrict()
 def getttl(message):
-    bot.send_message(text=str(pyautogui.getAllTitles()),chat_id=message.chat.id)
+    if sys.platform != "linux":
+        bot.send_message(text=str(pyautogui.getAllTitles()),chat_id=message.chat.id)
+    else:
+        bot.send_message(text=sp.check_output('wmctrl -l',shell=True).decode('utf-8'),chat_id=message.chat.id)
 @bot.message_handler(commands=['click','c'])
 @restrict()
 def ptclick(message):

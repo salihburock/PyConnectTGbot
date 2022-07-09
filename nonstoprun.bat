@@ -1,3 +1,5 @@
-:loop
-python main.py
-goto loop
+#!/bin/bash
+for (( ; ; ))
+do
+   python main.py 
+done
