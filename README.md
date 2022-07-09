@@ -12,12 +12,19 @@ PyConnectTelegramBot
 #runinbackground.vbs runs nonstoprun.bat without any trace.
 
 
+**/start**
+
+Sends your chat id so you can add it to admins.json
 
 **/ss or /screenshot**
 
 takes a screenshot and sends it through telegram
 
 **/mp or /mouseposition**
+
+takes a screenshot draws a square where mouse is and sends it
+
+**/cam**
 
 takes a screenshot draws a square where mouse is and sends it
 
@@ -60,3 +67,10 @@ presses the given button. Works via pyautogui's press() method (ex: /press win)
 **/type**
 
 types the given words. Works via pyautogui's typewrite() method (ex: /type Hwllo World)
+
+**/nf or /newfile**
+Syntax : 
+/nf
+filename
+file
+content
