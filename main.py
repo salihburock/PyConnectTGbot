@@ -134,7 +134,7 @@ def ptpress(message):
 def getttl(message):
     if sys.platform != "linux":
         bot.send_message(text=str(pyautogui.getAllTitles()),chat_id=message.chat.id)
-    else:
+    else: 
         bot.send_message(text=sp.check_output('wmctrl -l',shell=True).decode('utf-8'),chat_id=message.chat.id)
 @bot.message_handler(commands=['click','c'])
 @restrict()
