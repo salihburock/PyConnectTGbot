@@ -86,7 +86,7 @@ def mp(message):
 def newf(message):
     inp = message.text
     inplist = inp.split('\n')
-    filename = "files/"+inplist[1]
+    filename = inplist[1]
     code = inp.split(inplist[1])[1]
     f = open(filename,'w+')
     f.write(code)
