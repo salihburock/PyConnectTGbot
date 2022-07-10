@@ -11,6 +11,9 @@ PyConnectTelegramBot
 
 #runinbackground.vbs runs nonstoprun.bat without any trace.
 
+**/restart**
+
+Restars the script so any changes can be applied
 
 **/start**
 
