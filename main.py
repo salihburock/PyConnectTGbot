@@ -178,6 +178,12 @@ def ptdclick(message):
         x = tinp[1]
         y = tinp[2]
         pyautogui.doubleClick(x,y)
+
+@bot.message_handler(commands=['restart'])
+def restart(message):
+    bot.reply_to(message,'Restarting...')
+    os.execv(sys.executable, ['python'] + sys.argv)
+
 @bot.message_handler(commands=['os','cmd','shell'])
 @restrict()
 def oscmd(message):
