@@ -74,6 +74,9 @@ types the given words. Works via pyautogui's typewrite() method (ex: /type Hwllo
 **/nf or /newfile**
 Syntax : 
 /nf
+
 filename
+
 file
+
 content
