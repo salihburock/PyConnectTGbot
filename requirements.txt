@@ -1,0 +1,8 @@
+pyautogui
+telebot
+pyTelegramBotAPI
+playsound==1.2.2
+pillow
+gtts
+opencv-python
+pipenv
