@@ -11,16 +11,17 @@ import time
 from functools import *
 import json
 import sys
-jf = json.load(open('admins.json'))
+homedir = "/home/salih/gits"
+jf = json.load(open(f'{homedir}/PyConnectTGbot/admins.json'))
 def photocap():
     import cv2
     camera_port = 0
     camera = cv2.VideoCapture(camera_port)
     time.sleep(0.1)  
     return_value, image = camera.read()
-    cv2.imwrite("camout.png", image)
+    cv2.imwrite(f"{homedir}/PyConnectTGbot/camout.png", image)
     del(camera)
-api_key = open('api','r+').read()
+api_key = open(f'{homedir}/PyConnectTGbot/api','r+').read()
 bot = telebot.TeleBot(api_key)
 osmode = False
 def is_admin(id):
@@ -46,8 +47,11 @@ def strt(message):
 @bot.message_handler(commands=['ss','screenshot'])
 @restrict()
 def test(message):
-    pyautogui.screenshot('ss.png')
-    bot.send_photo(message.chat.id, open('ss.png', 'rb'))
+    if os.environ["XDG_SESSION_TYPE"]=="wayland":
+        os.system(f'grim -c -t png "{homedir}/PyConnectTGbot/ss.png"')
+    else:
+        pyautogui.screenshot(f'{homedir}/PyConnectTGbot/ss.png')
+    bot.send_photo(message.chat.id, open(f'{homedir}/PyConnectTGbot/ss.png', 'rb'))
     try:
         os.remove('ss.png')
     except:
@@ -56,30 +60,33 @@ def test(message):
 @restrict()
 def cam(message):
     photocap()
-    bot.send_photo(message.chat.id, open('camout.png', 'rb'))
+    bot.send_photo(message.chat.id, open(f'{homedir}/PyConnectTGbot/camout.png', 'rb'))
     try:
-        os.remove('camout.png')
+        os.remove(f'{homedir}/PyConnectTGbot/camout.png')
     except:
         pass
 @bot.message_handler(commands=['mp','mouseposition'])
 @restrict()
 def mp(message):
     try:
-        os.remove('ss.png ssout.png')
+        os.remove('{homedir}/PyConnectTGbot/ss.png {homedir}/PyConnectTGbot/ssout.png')
     except:
         pass
-    pyautogui.screenshot('ss.png')
-    ssimage = Image.open('ss.png')
+    if os.environ["XDG_SESSION_TYPE"]=="wayland":
+        os.system(f'grim -c -t png "{homedir}/PyConnectTGbot/ss.png"')
+    else:
+        pyautogui.screenshot(f'{homedir}/PyConnectTGbot/ss.png')
+    ssimage = Image.open(f'{homedir}/PyConnectTGbot/ss.png')
     xpos = pyautogui.position()[0]
     ypos = pyautogui.position()[1]
     draw = ImageDraw.Draw(ssimage)
     draw.rectangle((xpos, ypos, xpos + 20, ypos + 20), fill=True, outline='green', width=1)
-    ssimage.save('ssout.png')
+    ssimage.save(f'{homedir}/PyConnectTGbot/ssout.png')
     bot.send_message(text=str(pyautogui.position()),chat_id=message.chat.id)
-    bot.send_photo(message.chat.id, open('ssout.png','rb'))
+    bot.send_photo(message.chat.id, open(f'{homedir}/PyConnectTGbot/ssout.png','rb'))
     try:
-        os.remove('ss.png')
-        os.remove('ssout.png')
+        os.remove(f'{homedir}/PyConnectTGbot/ss.png')
+        os.remove(f'{homedir}/PyConnectTGbot/ssout.png')
     except:
         pass
 @bot.message_handler(commands=['newfile','nf'])
